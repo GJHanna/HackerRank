@@ -200,34 +200,31 @@ def kangaroo(x1, v1, x2, v2):
         return
 
 def minimumNumber(n, password):
-    if (1 < n <= 100):
-        if (n < 6):
-            return 6 - n
-        
-        lc = re.compile('[a-z]+')
-        uc = re.compile('[A-Z]+')
-        num = re.compile('\d')
-        sc = re.compile('[!@#$%^&*()-+]+')
-
-        flags = [False, False, False, False]
-
-        if (lc.findall(password)):
-            flags[0] = True
-        if (uc.findall(password)):
-            flags[1] = True
-        if (num.search(password)):
-            flags[2] = True
-        if (sc.findall(password)):
-            flags[3] = True
-        
+    if (1 <= n <= 100):
         count = 0
-        for flag in flags:
-            if (not flag):
-                count += 1
+
+        if (not re.search('[a-z]', password)):
+            print('Doesnt include lower case letters')
+            count += 1
+        if (not re.search('[A-Z]', password)):
+            print('Doesnt include upper case letters')
+            count += 1
+        if (not re.search('[0-9]', password)):
+            print('Doesnt include numbers')
+            count += 1
+        if (not re.search('[!@#$%^&*()+-]', password)):
+            print('Doesnt include special case characters')
+            count += 1
+
+        if (count + n) < 6:
+            count += 6 - (count + n)
+
         return count
-        
+
     else:
         return
 
 if __name__ == "__main__":
-    pass
+    print(minimumNumber(3, "Ab1"))
+    print(minimumNumber(11, "#HackerRank"))
+    print(minimumNumber(7, 'AUzs-nV'))
