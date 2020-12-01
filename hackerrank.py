@@ -266,5 +266,25 @@ def minimumNumber(n, password):
     else:
         return
 
+def breakingRecords(scores):
+    # Challenge name: Breaking the Records
+    # Challenge problem statment: https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem
+    elements_constraint = all(0 <= score <= 10**8 for score in scores) 
+    if ((1 <= len(scores) <= 1000) and elements_constraint):
+        changes = [0, 0]
+        max_score, min_score = scores[0], scores[0]
+        
+        for i in range(1, len(scores)):
+            if (scores[i] < min_score):
+                min_score = scores[i]
+                changes[1] += 1
+            elif ((scores[i] > max_score)):
+                max_score = scores[i]
+                changes[0] += 1
+            else:
+                continue
+
+        return changes
+        
 if __name__ == "__main__":
     pass
