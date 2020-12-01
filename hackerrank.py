@@ -285,6 +285,26 @@ def breakingRecords(scores):
                 continue
 
         return changes
+
+def birthday(s, d, m):
+    # Challenge name: Sub-array Division
+    # Challenge problem statment: https://www.hackerrank.com/challenges/the-birthday-bar/problem
+    elements_constraint = all(1 <= bar <= 5 for bar in s) 
+    if ((1 <= len(s) <= 100) and (1 <= d <= 31) and (1 <= m <= 12) and (elements_constraint)):
+        ways = 0
         
+        for i in range(len(s)):
+            sum_of_bars = s[i]
+            for j in range(i + 1, i + m):
+                if (j < len(s)):
+                    sum_of_bars += s[j]
+            
+            if (sum_of_bars == d):
+                ways += 1
+
+        return ways
+
 if __name__ == "__main__":
-    pass
+    birthday([1, 2, 1, 3, 2], 3, 2)
+    birthday([1, 1, 1, 1, 1, 1], 3, 2)
+    birthday([4], 4, 1)
