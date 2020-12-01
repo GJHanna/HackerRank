@@ -318,6 +318,16 @@ def divisibleSumPairs(n, k, ar):
         
         return pairs
 
+def migratoryBirds(arr):
+    # Challenge name: Migratory Birds
+    # Challenge problem statment: https://www.hackerrank.com/challenges/migratory-birds/problem
+    freq = [0, 0, 0, 0, 0] # Denoting [Type 1, Type 2, Type 3, Type 4, Type 5]
+    if (5 <= len(arr) <= 2*10**5):
+        for bird in arr:
+            freq[bird - 1] += 1
+        
+        return freq.index(max(freq)) + 1
+
 
 if __name__ == "__main__":
     pass
