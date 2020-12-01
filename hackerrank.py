@@ -292,7 +292,7 @@ def birthday(s, d, m):
     elements_constraint = all(1 <= bar <= 5 for bar in s) 
     if ((1 <= len(s) <= 100) and (1 <= d <= 31) and (1 <= m <= 12) and (elements_constraint)):
         ways = 0
-        
+
         for i in range(len(s)):
             sum_of_bars = s[i]
             for j in range(i + 1, i + m):
@@ -304,7 +304,20 @@ def birthday(s, d, m):
 
         return ways
 
+def divisibleSumPairs(n, k, ar):
+    # Challenge name: Divisible Sum Pairs
+    # Challenge problem statment: https://www.hackerrank.com/challenges/divisible-sum-pairs/problem
+    elements_constraint = all(1 <= a <= 100 for a in ar) 
+    if ((2 <= n <= 100) and (1 <= k <= 100) and (elements_constraint)):
+        pairs = 0
+
+        for i in range(len(ar)):
+            for j in range(i + 1, len(ar)):
+                if (ar[i] + ar[j]) % k == 0:
+                    pairs += 1
+        
+        return pairs
+
+
 if __name__ == "__main__":
-    birthday([1, 2, 1, 3, 2], 3, 2)
-    birthday([1, 1, 1, 1, 1, 1], 3, 2)
-    birthday([4], 4, 1)
+    pass
