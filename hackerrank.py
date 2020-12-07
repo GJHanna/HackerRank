@@ -355,17 +355,24 @@ def dayOfProgrammer(year):
 
         return "{}.09.{}".format(256 - total_days, month, year)
 
-def formingMagicSquare(s):
-    # Challenge name: Forming a Magic Square
-    # Challenge problem statment: https://www.hackerrank.com/challenges/magic-square-forming/problem
-    applicable = True
-    cost, sum_of_element = 0
+def bonAppetit(bill, k, b):
+    # Challenge name: Bill Division
+    # Challenge problem statment: https://www.hackerrank.com/challenges/bon-appetit/problem
+    bill_constraint = all(0 <= b <= 10**4 for b in bill)
+    bill_sum = sum(bill)
     
+    if (2 <= len(bill) <= 10**5) and (0 <= k < len(bill)) and bill_constraint and (0 <= b <= bill_sum):
+        s = 0
+        for i in range(len(bill)):
+            if (i != k):
+                s += bill[i]
+        
+        b_actual = s // 2
+
+        if b_actual == b:
+            print("Bon Appetit")
+        else:
+            print(b - b_actual)
 
 if __name__ == "__main__":
-    print(dayOfProgrammer(1984))
-    print(dayOfProgrammer(2017))
-    print(dayOfProgrammer(2016))
-    print(dayOfProgrammer(1800))
-    print(dayOfProgrammer(1918))
-    print(dayOfProgrammer(2000))
+    pass
