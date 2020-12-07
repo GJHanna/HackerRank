@@ -8,7 +8,6 @@
 import math
 import re
 
-
 def solveMeFirst(a,b):
     # Challenge name: Solve Me First
     # Challenge problem statment: https://www.hackerrank.com/challenges/solve-me-first/problem
@@ -328,6 +327,45 @@ def migratoryBirds(arr):
         
         return freq.index(max(freq)) + 1
 
+def dayOfProgrammer(year):
+    # Challenge name: Day of the Programmer
+    # Challenge problem statment: https://www.hackerrank.com/challenges/day-of-the-programmer/problem
+    if 1700 <= year <= 2700:
+        total_days = 243
+        
+        if 1700 <= year <= 1917: # Julian Calander
+            if year % 4 == 0:
+                print(year, "is a Leap Year")
+                total_days += 1
+        elif (1919 <= year <= 2700): # Gregorian Calander
+            if (year % 4) == 0:
+                if (year % 100) == 0:
+                    if (year % 400) == 0:
+                        print(year, "is a leap year")
+                        total_days += 1
+                    else:
+                        print(year, "is not a leap year")
+                else:
+                    print(year, "is a leap year")
+                    total_days += 1
+            else:
+                print(year, "is not a leap year")
+        else: # Transition peroid
+            total_days -= 13
+
+        return "{}.09.{}".format(256 - total_days, month, year)
+
+def formingMagicSquare(s):
+    # Challenge name: Forming a Magic Square
+    # Challenge problem statment: https://www.hackerrank.com/challenges/magic-square-forming/problem
+    applicable = True
+    cost, sum_of_element = 0
+    
 
 if __name__ == "__main__":
-    pass
+    print(dayOfProgrammer(1984))
+    print(dayOfProgrammer(2017))
+    print(dayOfProgrammer(2016))
+    print(dayOfProgrammer(1800))
+    print(dayOfProgrammer(1918))
+    print(dayOfProgrammer(2000))
