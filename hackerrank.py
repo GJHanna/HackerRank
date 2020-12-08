@@ -374,5 +374,34 @@ def bonAppetit(bill, k, b):
         else:
             print(b - b_actual)
 
+def pageCount(n, p):
+    # Challenge name: Drawing Book
+    # Challenge problem statment: https://www.hackerrank.com/challenges/drawing-book/problem
+    if (1 <= n <= 10**5) and (1 <= p <= n):
+
+        if (p == n // 2):
+            return n // 4
+
+        if p == n:
+            return 0
+        
+        if p == n - 1:
+            return 1
+        
+        if (p > n // 2):
+            return n // 2 - p // 2
+
+        if (p < n // 2):
+            return p // 2 
+
 if __name__ == "__main__":
-    pass
+    print(pageCount(5, 3))
+    print(pageCount(6, 2))
+    print(pageCount(5, 4))
+    print(pageCount(4, 2))
+    print(pageCount(6, 3))
+    print(pageCount(10, 5))
+    print(pageCount(7, 3))
+    print(pageCount(20, 10))
+    print(pageCount(30, 15))
+    print(pageCount(73201, 57075)) # 8063
