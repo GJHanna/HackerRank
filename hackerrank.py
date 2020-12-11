@@ -394,14 +394,22 @@ def pageCount(n, p):
         if (p < n // 2):
             return p // 2 
 
+def countingValleys(steps, path):
+    # Challenge name: Counting Valleys
+    # Challenge problem statment: https://www.hackerrank.com/challenges/counting-valleys/problem
+    path.strip()
+    seaLevel = valley = 0
+
+    for p in path:
+        if p == 'U':
+            seaLevel += 1
+        else:
+            seaLevel -= 1
+        
+        if p == 'U' and seaLevel == 0:
+            valley += 1
+    
+    return valley
+
 if __name__ == "__main__":
-    print(pageCount(5, 3))
-    print(pageCount(6, 2))
-    print(pageCount(5, 4))
-    print(pageCount(4, 2))
-    print(pageCount(6, 3))
-    print(pageCount(10, 5))
-    print(pageCount(7, 3))
-    print(pageCount(20, 10))
-    print(pageCount(30, 15))
-    print(pageCount(73201, 57075)) # 8063
+    pass
