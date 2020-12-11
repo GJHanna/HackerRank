@@ -411,5 +411,15 @@ def countingValleys(steps, path):
     
     return valley
 
+def extraLongFactorials(n):
+    # Challenge name: Extra Long Factorials
+    # Challenge problem statment: https://www.hackerrank.com/challenges/extra-long-factorials/problem
+    result = 1
+    
+    for i in range(n, 1, -1):
+        result *= i
+
+    print(result)
+
 if __name__ == "__main__":
-    pass
+    extraLongFactorials(25)
