@@ -421,5 +421,18 @@ def extraLongFactorials(n):
 
     print(result)
 
+def climbingLeaderboard(ranked, player):
+    # Challenge name: Climbing the Leaderboard
+    # Challenge problem statment: https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem
+    scores_set = list(set(ranked))
+    scores_set.sort(reverse=True)
+    result = []
+    l = len(scores_set)
+    for s in player:
+        while (l > 0) and (s >= scores_set[l - 1]):
+            l -= 1
+        result.append(l + 1)
+    return result
+
 if __name__ == "__main__":
-    extraLongFactorials(25)
+    pass
