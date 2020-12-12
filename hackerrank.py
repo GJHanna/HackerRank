@@ -448,5 +448,17 @@ def designerPdfViewer(h, word):
     return max(ascii_list) * len(word)
 
 
+def utopianTree(n):
+    # Challenge name: Utopian Tree
+    # Challenge problem statment: https://www.hackerrank.com/challenges/utopian-tree/problem    
+    # if n % 2 == 0:
+    #     return abs((n * 2) - 1)
+    # if n % 2 != 0:
+    #     return abs((((n - 1) * 2) - 1) * 2)
+    if n % 2 == 0:
+        return int(max(1, 2 ** ((n / 2) + 1) - 1))
+    if n % 2 != 0:
+        return int(max(1, 2 ** ((n + 3) / 2) - 2))
+
 if __name__ == "__main__":
     pass
