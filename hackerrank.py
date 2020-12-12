@@ -451,14 +451,20 @@ def designerPdfViewer(h, word):
 def utopianTree(n):
     # Challenge name: Utopian Tree
     # Challenge problem statment: https://www.hackerrank.com/challenges/utopian-tree/problem    
-    # if n % 2 == 0:
-    #     return abs((n * 2) - 1)
-    # if n % 2 != 0:
-    #     return abs((((n - 1) * 2) - 1) * 2)
     if n % 2 == 0:
         return int(max(1, 2 ** ((n / 2) + 1) - 1))
     if n % 2 != 0:
         return int(max(1, 2 ** ((n + 3) / 2) - 2))
+
+def angryProfessor(k, a):
+    # Challenge name: Angry Professor
+    # Challenge problem statment: https://www.hackerrank.com/challenges/angry-professor/problem
+    a.sort()
+    stud  = 0
+    for i in range(k):
+        if (a[i] <= 0):
+            stud += 1
+    return "NO" if stud >= k else "YES"
 
 if __name__ == "__main__":
     pass
