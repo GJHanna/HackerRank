@@ -440,5 +440,13 @@ def hurdleRace(k, height):
     result = max(height) - k
     return max(0, result)
 
+def designerPdfViewer(h, word):
+    # Challenge name: Designer PDF Viewer
+    # Challenge problem statment: https://www.hackerrank.com/challenges/designer-pdf-viewer/problem
+    word = word.lower()
+    ascii_list = [h[ord(l) - 97] for l in word]
+    return max(ascii_list) * len(word)
+
+
 if __name__ == "__main__":
     pass
