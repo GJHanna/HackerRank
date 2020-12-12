@@ -434,5 +434,11 @@ def climbingLeaderboard(ranked, player):
         result.append(l + 1)
     return result
 
+def hurdleRace(k, height):
+    # Challenge name: The Hurdle Race
+    # Challenge problem statment: https://www.hackerrank.com/challenges/the-hurdle-race/problem
+    result = max(height) - k
+    return max(0, result)
+
 if __name__ == "__main__":
     pass
