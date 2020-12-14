@@ -378,10 +378,46 @@ def angryProfessor(k, a):
             stud += 1
     return "NO" if stud >= k else "YES"
 
-def queensAttack(n, k, r_q, c_q, obstacles):
+def queensAttack(n, k, r_q, c_q, obstacles=[[]]):
     # Challenge name: Queen's Attack II
     # Challenge problem statment: https://www.hackerrank.com/challenges/queens-attack-2/problem
+    top = n - r_q
+    bottom = r_q - 1
+    right = n - c_q
+    left = c_q - 1
+
+    top_left = min(n - r_q, c_q - 1)
+    top_right = n - max(c_q, r_q)
+    bottom_left = min(r_q, c_q) - 1
+    bottom_right = min(r_q - 1, n - c_q)
     
+    if k != 0:
+        for obstacle in obstacles:
+            if obstacle[0] == r_q:
+                if obstacle[1] > c_q:
+                    top = min(top, obstacle[1] - c_q - 1)
+                else:
+                    bottom = min(bottom, c_q - obstacle[1] - 1)
+            elif obstacle[1] == c_q:
+                if obstacle[0] > r_q:
+                    right = min(right, obstacle[0] - r_q - 1)
+                else:
+                    left = min(left, r_q - obstacle[0] - 1)
+            elif abs(obstacle[1] - c_q) == abs(obstacle[0] - r_q):
+                if obstacle[1] > c_q and obstacle[0] > r_q:
+                    top_right = min(top_right, obstacle[1] - c_q - 1)
+                elif obstacle[1] > c_q and obstacle[0] < r_q:
+                    bottom_right = min(bottom_right, obstacle[1] - c_q - 1)
+                elif obstacle[1] < c_q and obstacle[0] > r_q:
+                    top_left = min(top_left, c_q - obstacle[1] - 1)
+                elif obstacle[1] < c_q and obstacle[0] < r_q:
+                    bottom_left = min(bottom_left, c_q - obstacle[1] - 1)
+
+    return top + bottom + right + left + top_left + top_right + bottom_left + bottom_right
 
 if __name__ == "__main__":
-    pass
+    print(queensAttack(5, 3, 4, 3, [[5, 5], [4,  2], [2, 3]]))
+    print(queensAttack(8, 0, 4, 4))
+    print(queensAttack(4, 0, 4, 4))
+    print(queensAttack(4, 0, 3, 2))
+    print(queensAttack(8, 1, 4, 4, [[3, 5]]))
