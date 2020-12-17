@@ -474,5 +474,20 @@ def pickingNumbers(a):
         picked.append(a.count(i) + a.count(i + 1))
     return max(picked_)
 
+def beautifulDays(i, j, k):
+    # Challenge name: Beautiful Days at the Movies
+    # Challenge Problem Statement: https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem
+    c = 0
+    try:
+        for day in range(i, j + 1):
+            str_day = str(day)
+            reversed_day = int(str_day[::-1])
+            if abs(day - reversed_day) % k == 0:
+                c += 1
+    except TypeError as e:
+        print(e)
+
+    return c
+
 if __name__ == "__main__":
     pass
