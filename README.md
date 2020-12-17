@@ -1,10 +1,10 @@
 # HackRank Solutions
 
-This file serves as my HackerRank solutions progress that is mostly solved using Python. 
+This file serves as my [HackerRank](https://www.hackerrank.com) solutions progress that is mostly solved using Python. 
 
 # Problems Solved Till Now
 
-    [Solve Me First](https://www.hackerrank.com/challenges/solve-me-first/problem)
+    + [Solve Me First](https://www.hackerrank.com/challenges/solve-me-first/problem)
     + [Simple Array Sum](https://www.hackerrank.com/challenges/simple-array-sum/problem)
     + [A Very Big Sum](https://www.hackerrank.com/challenges/a-very-big-sum/problem)
     + [Diagonal Difference](https://www.hackerrank.com/challenges/diagonal-difference/problem)
