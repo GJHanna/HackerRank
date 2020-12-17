@@ -465,5 +465,14 @@ def getMoneySpent(keyboards, drives, b):
         return max(l)
     return -1
 
+def pickingNumbers(a):
+    # Challenge name: Picking Numbers
+    # Challenge Problem Statement: https://www.hackerrank.com/challenges/picking-numbers/problem
+    a.sort()
+    picked = []
+    for i in a:
+        picked.append(a.count(i) + a.count(i + 1))
+    return max(picked_)
+
 if __name__ == "__main__":
     pass
