@@ -440,19 +440,6 @@ def formingMagicSquare(s):
         
     return min(cost)
 
-def pickingNumbers(a):
-    # Challenge name: Picking Numbers
-    # Challenge problem statment: https://www.hackerrank.com/challenges/picking-numbers/problem
-    a.sort()
-    sub = []
-    for i in range(len(a)):
-        if i + 1 == len(a) - 1:
-            break
-        if abs(a[i + 1] - a[i]) <= 0:
-            sub.append(i)
-        print("{} - {} = {}".format(a[i + 1], a[i], abs(a[i + 1] - a[i])))
-    print(sub)
-
 def catAndMouse(x, y, z):
     # Challenge name: Cats and a Mouse
     # Challenge Problem Statement: https://www.hackerrank.com/challenges/cats-and-a-mouse/problem
@@ -462,6 +449,21 @@ def catAndMouse(x, y, z):
         return "Cat B"
     else:
         return "Mouse C"
+
+def getMoneySpent(keyboards, drives, b):
+    # Challenge name: Electronics Shop
+    # Challenge Problem Statement: https://www.hackerrank.com/challenges/electronics-shop/problem
+    keyboards.sort()
+    drives.sort()
+    l = []
+    for keyboard in keyboards:
+        for drive in drives:
+            if keyboard + drive <= b:
+                l.append(keyboard + drive)
+    
+    if l:
+        return max(l)
+    return -1
 
 if __name__ == "__main__":
     pass
