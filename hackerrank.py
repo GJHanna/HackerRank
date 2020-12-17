@@ -440,10 +440,28 @@ def formingMagicSquare(s):
         
     return min(cost)
 
+def pickingNumbers(a):
+    # Challenge name: Picking Numbers
+    # Challenge problem statment: https://www.hackerrank.com/challenges/picking-numbers/problem
+    a.sort()
+    sub = []
+    for i in range(len(a)):
+        if i + 1 == len(a) - 1:
+            break
+        if abs(a[i + 1] - a[i]) <= 0:
+            sub.append(i)
+        print("{} - {} = {}".format(a[i + 1], a[i], abs(a[i + 1] - a[i])))
+    print(sub)
+
+def catAndMouse(x, y, z):
+    # Challenge name: Cats and a Mouse
+    # Challenge Problem Statement: https://www.hackerrank.com/challenges/cats-and-a-mouse/problem
+    if abs(x - z) < abs(y - z):
+        return "Cat A"
+    elif abs(x - z) > abs(y - z):
+        return "Cat B"
+    else:
+        return "Mouse C"
+
 if __name__ == "__main__":
-    formingMagicSquare([[5, 3, 4], [1, 5, 8], [6, 4, 2]])
-    formingMagicSquare([[4, 9, 2], [3, 5, 7], [8, 1, 5]])
-    formingMagicSquare([[4, 8, 2], [4, 5, 7], [6, 1, 6]])
-    formingMagicSquare([[4, 9, 2], [3, 5, 7], [8, 1, 6]])
-    formingMagicSquare([[9, 9, 8], [8, 9, 9], [8, 9, 9]])
-    formingMagicSquare([[2, 7, 6], [9, 5, 1], [4, 3, 8]])
+    pass
